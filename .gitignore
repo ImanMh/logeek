@@ -3,3 +3,7 @@
 
 #mac files
 .DS_Store
+
+#third party
+node_modules
+lib
