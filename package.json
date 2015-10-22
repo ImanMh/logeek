@@ -1,0 +1,30 @@
+{
+  "name": "loggify",
+  "version": "0.0.0",
+  "description": "A better way to Javascript logging",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-babel": "^5.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Saoshyant-co/loggify.git"
+  },
+  "keywords": [
+    "javascript",
+    "logging",
+    "logger",
+    "log",
+    "nodejs"
+  ],
+  "author": "Iman Mohamadi (http://jsDecorator.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saoshyant-co/loggify/issues"
+  },
+  "homepage": "https://github.com/Saoshyant-co/loggify"
+}
