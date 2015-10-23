@@ -7,14 +7,18 @@
     "gulp-babel": "^5.3.0"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",
     "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2",
+    "testem": "^0.9.8"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/testem"
   },
   "repository": {
     "type": "git",
