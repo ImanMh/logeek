@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('default', function () {
   return gulp.src('src/loggify.js').
     pipe(sourcemaps.init()).
-    pipe(babel()).
+    pipe(babel({modules: 'ignore'})).
     pipe(sourcemaps.write('.')).
     pipe(gulp.dest('dist'));
 });
