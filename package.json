@@ -1,5 +1,5 @@
 {
-  "name": "loggify",
+  "name": "@iman/loggify",
   "version": "1.0.0",
   "description": "A better way to Javascript logging",
   "main": "index.js",
@@ -31,7 +31,11 @@
     "log",
     "nodejs"
   ],
-  "author": "Iman Mohamadi (http://jsDecorator.com)",
+  "author": { 
+    "name" : "Iman Mohamadi",
+    "email" : "Iman@jsDecorator.com",
+    "url" : "http://jsDecorator.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Saoshyant-co/loggify/issues"
