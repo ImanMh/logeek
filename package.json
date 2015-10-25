@@ -1,6 +1,6 @@
 {
   "name": "loggify",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A better way to Javascript logging",
   "main": "index.js",
   "dependencies": {
