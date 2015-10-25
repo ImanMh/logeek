@@ -3,7 +3,7 @@ if (typeof window === 'undefined') {
   // We are in node. Require modules.
   expect = require('chai').expect;
   sinon = require('sinon');
-  loggify = require('../dist/loggify');
+  loggify = require('../dist/loggify').loggify;
   isBrowser = false;
 } else {
   // We are in the browser. Set up variables like above using served js files.
