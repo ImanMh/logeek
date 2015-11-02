@@ -16,7 +16,11 @@ or
 make sure to include the ```dist/logeek.js``` in your HTML or your Node application after you download it.
 
 #Usage
-Suppose you are working on a sync module and you want to log some message:
+Logeek uses '@' as the default delimiter for separating the message and the scope. The general format of logging message with logeek is:
+```javascript
+  logeek('M @ S');
+```
+This means that message 'M' is related to scope 'S'. Suppose you are working on a sync module and you want to log some message:
 ```javascript
   logeek.show('sync');
   logeek('communicating with server @ sync'); //logs communicating with...
