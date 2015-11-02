@@ -1,6 +1,6 @@
 {
   "name": "logeek",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A better way to Javascript logging",
   "main": "index.js",
   "dependencies": {
@@ -31,10 +31,10 @@
     "log",
     "nodejs"
   ],
-  "author": { 
-    "name" : "Iman Mohamadi",
-    "email" : "Iman@jsDecorator.com",
-    "url" : "http://jsDecorator.com"
+  "author": {
+    "name": "Iman Mohamadi",
+    "email": "Iman@jsDecorator.com",
+    "url": "http://jsDecorator.com"
   },
   "license": "ISC",
   "bugs": {
