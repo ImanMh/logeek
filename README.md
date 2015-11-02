@@ -22,11 +22,11 @@ Logeek uses '@' as the default delimiter for separating the message and the scop
 ```
 This means that message 'M' is related to scope 'S'. Suppose you are working on a sync module and you want to log some message:
 ```javascript
-  logeek.show('sync');
-  logeek('communicating with server @ sync'); //logs communicating with...
-  logeek('starting initial sync @ sync');    //logs starting...
+  logeek.show('sync');                          //setting the initial scope
+  logeek('communicating with server @ sync');   //logs communicating with...
+  logeek('starting initial sync @ sync');       //logs starting...
   if ( db.notReady() ) {
-    logeek('building db @ database');        //logs nothing! because current scope is 'sync'
+    logeek('building db @ database');           //logs nothing! because current scope is 'sync'
   }
 ```
 
@@ -34,15 +34,15 @@ This means that message 'M' is related to scope 'S'. Suppose you are working on 
 Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between multiple groups and controll them much easier. 
 ```javascript
   logeek.show('sync/db/*');
-  logeek('communicating with server @ sync'); //logs nothing! current scope is sync/db/*
-  logeek('pulling data for sync @ sync/db'); //logs pulling...
+  logeek('communicating with server @ sync');     //logs nothing! current scope is sync/db/*
+  logeek('pulling data for sync @ sync/db');      //logs pulling...
   logeek('Oops! there is not data in db @ sync/db/error'); //logs Oops!...
   
   //You can also set reverse filters
   logeek.show('*/error');
   logeek('creating database @ db');               //logs nothing!
   logeek('inserting new data @ db/data');         //logs nothing!
-  logeek('error in insert @ db/data/error');     //logs error in...
+  logeek('error in insert @ db/data/error');      //logs error in...
   logeek('syncing data to server @ sync');        //logs nothing!
   logeek('server is not available @ sync/error'); //logs server is not...
 ```
