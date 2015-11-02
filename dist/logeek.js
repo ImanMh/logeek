@@ -1,19 +1,19 @@
 'use strict';
 
-var loggify = (function () {
+var logeek = (function () {
   var config = {
     filter: '_global_',
     delimiter: '@'
   };
 
-  var loggify = function loggify() {
+  var logeek = function logeek() {
     var args = normalizeArgs.apply(null, arguments);
     if (!isAllowed(args.msg, args.filter)) return;
 
     if (args.msg instanceof Array) console.log.apply(null, args.msg);else console.log.call(null, args.msg);
   };
 
-  loggify.show = function (filter) {
+  logeek.show = function (filter) {
     config.filter = filter;
   };
 
@@ -42,9 +42,9 @@ var loggify = (function () {
     return str.replace(/^(\s|\n)*|(\s|\n)*$/gm, '');
   }
 
-  return loggify;
+  return logeek;
 })();
 
 //NodeJS wrapper
-if (typeof exports !== 'undefined') exports.loggify = loggify;
-//# sourceMappingURL=loggify.js.map
+if (typeof exports !== 'undefined') exports.logeek = logeek;
+//# sourceMappingURL=logeek.js.map

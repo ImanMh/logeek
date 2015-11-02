@@ -1,10 +1,10 @@
-var loggify = (function () {
+var logeek = (function () {
   var config = {
     filter: '_global_',
     delimiter: '@'
   };  
 
-  var loggify = function () {
+  var logeek = function () {
     var args = normalizeArgs.apply(null, arguments);
     if (!isAllowed(args.msg, args.filter))
       return;
@@ -15,7 +15,7 @@ var loggify = (function () {
       console.log.call(null, args.msg);
   };
 
-  loggify.show = function (filter) {
+  logeek.show = function (filter) {
     config.filter = filter;
   };
 
@@ -50,10 +50,10 @@ var loggify = (function () {
     return str.replace(/^(\s|\n)*|(\s|\n)*$/gm, '');
   }
   
-  return loggify;
+  return logeek;
 })();
 
 
 //NodeJS wrapper
 if (typeof exports !== 'undefined')
-  exports.loggify = loggify;
+  exports.logeek = logeek;

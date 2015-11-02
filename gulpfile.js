@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch');
 
 gulp.task('default', function () {
-  return gulp.src('src/loggify.js').
+  return gulp.src('src/logeek.js').
     pipe(sourcemaps.init()).
     pipe(babel({modules: 'ignore'})).
     pipe(sourcemaps.write('.')).

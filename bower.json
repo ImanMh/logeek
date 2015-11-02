@@ -1,9 +1,9 @@
 {
-  "name": "loggify",
+  "name": "logeek",
   "version": "1.0.0",
-  "homepage": "https://github.com/Saoshyant-co/loggify",
+  "homepage": "https://github.com/Saoshyant-co/logeek",
   "description": "A modern soloution for Javascript logging",
-  "main": "dist/loggify.js",
+  "main": "dist/logeek.js",
   "moduleType": [],
   "keywords": [
     "javascript",

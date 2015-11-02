@@ -3,7 +3,7 @@
   "src_files": [
     "node_modules/chai/chai.js",
     "node_modules/sinon/pkg/sinon.js",
-    "dist/loggify.js",
+    "dist/logeek.js",
     "test/setup.js",
     "test/*.test.js"
   ],
