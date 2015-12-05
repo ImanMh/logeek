@@ -107,3 +107,43 @@ describe('Scopped loggs', function () {
     console.log.restore();
   });
 });
+
+describe('async calls', function () {
+  
+  it('should log when called async', function (done) {
+    sinon.spy(console, 'log');
+    
+    logeek.show('myScope');
+    
+    setTimeout(function () {
+      logeek('a-msg1 @ myScope');
+
+      expect(console.log.calledWith('a-msg1')).to.be.true;
+      done();
+
+      logeek.show('_global_');
+      console.log.restore();
+    }, 1);
+      
+  });
+  
+  it('should be able to work when called indirectly', function (done) {
+    sinon.spy(console, 'log');
+    
+    logeek.show('myScope');
+    var sampleFunc = function (msg, done) {
+      setTimeout(function () {
+        logeek(msg + ' @ myScope');
+        
+        expect(console.log.calledWith('a-msg1')).to.be.true;
+        done();
+        
+        logeek.show('_global_');
+        console.log.restore();
+      }, 1);
+    };
+    
+    sampleFunc('a-msg1', done);
+  });
+  
+});
