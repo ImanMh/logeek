@@ -36,6 +36,9 @@ This means that message 'M' will be shown when scope 'S' is visible. Suppose you
 
 This is what you'll see in your console: 
 ```
+starting copy
+50% done
+100% done
 ```
 
 If you used ```logeek.show('copy/*')``` your console would be like:
