@@ -1,7 +1,7 @@
 'use strict';
 var logeek = require('../dist/logeek').logeek;
 
-suite('logeek', function () {
+suite('Logeek', function () {
 	set('iterations', 100000);
 
   logeek.show('nothing');
