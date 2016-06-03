@@ -20,6 +20,7 @@ make sure to include the ```dist/logeek.js``` in your HTML or your Node applicat
 #Usage
 Logeek uses '@' as the default delimiter for separating the message and the scope. The general format of logging message with logeek is:
 ```javascript
+  var logeek = require('logeek').logeek;
   logeek('M @ S');
 ```
 This means that message 'M' will be shown when scope 'S' is visible. Suppose you are working on a copy module and you want to log some message:
