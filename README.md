@@ -51,7 +51,7 @@ A file was skipped
 ```
 
 #Nested Scopes
-Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between multiple groups and control them much easier. 
+Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between them  and control them much easier. 
 ```javascript
   logeek.show('sync/db/*');
   logeek('communicating with server @ sync');     //logs nothing! current scope is sync/db/*
