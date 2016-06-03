@@ -20,18 +20,32 @@ Logeek uses '@' as the default delimiter for separating the message and the scop
 ```javascript
   logeek('M @ S');
 ```
-This means that message 'M' is related to scope 'S'. Suppose you are working on a sync module and you want to log some message:
+This means that message 'M' will be shown when scope 'S' is visible. Suppose you are working on a copy module and you want to log some message:
 ```javascript
-  logeek.show('sync');                          //setting the initial scope
-  logeek('communicating with server @ sync');   //logs communicating with...
-  logeek('starting initial sync @ sync');       //logs starting...
-  if ( db.notReady() ) {
-    logeek('building db @ database');           //logs nothing! because current scope is 'sync'
-  }
+  logeek.show('copy');                              //setting the visible scope
+  logeek('reading the list of files form db @ db');
+  logeek('investigating authentication @ auth');
+  logeek('starting copy @ copy');                   //logs starting copy
+  logeek('50% done @ copy');                        //logs 50% done
+  lopeek('A file was skipped @ copy/skip');
+  logeek('100% done @ copy');                       //logs 100% done
+  logeek('saving state in database @ db');
+```
+
+This is what you'll see in your console: 
+```
+```
+
+If you used ```logeek.show('copy/*')``` your console would be like:
+```
+starting copy
+50% done
+A file was skipped
+100% done
 ```
 
 #Nested Scopes
-Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between multiple groups and controll them much easier. 
+Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between multiple groups and control them much easier. 
 ```javascript
   logeek.show('sync/db/*');
   logeek('communicating with server @ sync');     //logs nothing! current scope is sync/db/*
