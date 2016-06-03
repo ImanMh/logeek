@@ -1,7 +1,7 @@
 # logeek
 Logeek adds control and joy to your console log messages. It's a high performance, light weight tool for logging Javascript messages in node or browser. It can be combined with other tools such as Chalk to  extend it's powers even more.
 
-![Logeek benchmark results](http://a62i.imgup.net/ScreenShot6cfc.png)
+![Logeek benchmark results](http://a62.imgup.net/ScreenShot6cfc.png)
 
 ##Why not using native log?
 Native log is good, but you almost always delete it after you finish your work. One reason can be logs are for developers so it's better to remove them after finishing the job. The other reason is that when team working comes in, everyone try to get the upper hand in logging. You see any kind of funny delimiter like ---------- My Name --------  or trying to change the color of messages. Finally the team end up with a huge mess that no body can easily find their logs in it. logeek will fix all these issues in a very simple manner. Now that you know why using the native log is a bad idea you see the rest of logeek document to fix that issue.
@@ -80,4 +80,4 @@ logeek(chalk.red('copy aborted') + '@ copy');
 ```
 
 And this is what you see in your console: 
-![Logeek Console Log](http://p30i.imgup.net/ScreenShotba16.png)
+![Logeek Console Log](http://m08.imgup.net/ScreenShoteedf.png)
