@@ -60,3 +60,21 @@ Scopes are powerful ways to group your log message together and disable or enabl
   logeek('syncing data to server @ sync');        //logs nothing!
   logeek('server is not available @ sync/error'); //logs server is not...
 ```
+#Chalk Integration
+Logeek plays well with other standard libraries such as Chalk. Here is an example of using Logeek with Chalk to control the console logs like a pro: 
+
+```Javascript
+var chalk = require('chalk'),
+    logeek = require('logeek').logeek;
+
+logeek.show('copy/*');
+logeek(chalk.gray('copy started') + '@ copy');
+logeek(chalk.green('50% done') + '@ copy');
+logeek(chalk.gray('making md5 comparison') + '@ md5');
+logeek(chalk.yellow('one file skipped') + '@ copy/skip');
+logeek(chalk.red('error occured during coppy') + '@ copy/error');
+logeek(chalk.gray('logging into db') + '@ db');
+logeek(chalk.red('copy aborted') + '@ copy');
+```
+
+And this is what you see in your console: 
