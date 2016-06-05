@@ -61,15 +61,49 @@
 
 (function () {
   var config = {
-    globalName: 'logeek'
+    globalName: 'logeek',
+    scope: '_global_'
   };
 
-  var logeek = function logeek() {};
+  var logeek = function logeek(msg) {
+    this.msg = msg;
+    return this;
+  };
+
+  logeek.prototype.at = function (scope) {
+    if (config.scope === scope || config.scope === '_global_') console.log(this.msg);
+  };
+
+  var show = function show(scope) {
+    config.scope = scope;
+  };
+
+  var logeekParser = function logeekParser(logCommand) {
+    var lastDelimiterIndex = logCommand.lastIndexOf('@'),
+        msg = logCommand.substring(0, lastDelimiterIndex),
+        scope = logCommand.substring(lastDelimiterIndex + 1);
+
+    new logeek(msg).at(scope);
+  };
+
+  var logeekGen = function logeekGen(msg) {
+    if (msg.indexOf('@') !== -1) {
+      logeekParser(msg);
+      return;
+    }
+    return new logeek(msg);
+  };
 
   //browser export
-  if (typeof window !== 'undefined') window[config.globalName] = logeek;
+  if (typeof window !== 'undefined') {
+    window[config.globalName] = logeekGen;
+    window[config.globalName].show = show;
+  }
 
   //NodeJS export
-  if (typeof exports !== 'undefined') exports = logeek;
+  if (typeof exports !== 'undefined') {
+    module.exports = logeekGen;
+    module.exports.show = show;
+  }
 })();
 //# sourceMappingURL=logeek.js.map

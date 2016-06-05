@@ -10,16 +10,38 @@ describe('Testing environment', function () {
   });
 });
 
-// describe('simple logging', function () {
-//   it('should log everything by default', function () {
-//     sinon.spy(console, 'log');
-//     
-//     logeek('some text here').at('test');
-//     expect(console.log.calledOnce).to.be.true;
-//     expect(console.log.firstCall.calledWith('msg1')).to.be.true;
-//     
-//   });
-// });
+describe('simple logging', function () {
+  it('should log everything by default', function () {
+    sinon.spy(console, 'log');
+    
+    logeek('m').at('s');
+    expect(console.log.calledOnce).to.be.true;
+    expect(console.log.firstCall.calledWith('m')).to.be.true;
+    
+    console.log.restore();
+  });
+  
+  it('should support compact logging style & should not trim log messages', function () {
+    sinon.spy(console, 'log');
+    
+    logeek('m  @ s');
+    expect(console.log.calledOnce).to.be.true;
+    expect(console.log.calledWith('m  ')).to.be.true;
+    
+    console.log.restore();
+  });
+  
+  it('should not log messages out of scope', function () {
+    sinon.spy(console, 'log');
+    
+    logeek.show('X');
+    logeek('m').at('s');
+    expect(console.log.notCalled).to.be.true;
+    
+    console.log.restore();
+  });
+  
+});
 
 
 // describe('Simple logging', function () {
