@@ -65,13 +65,20 @@
     scope: '_global_'
   };
 
+  function passesFilter(input, filter) {
+    var pattern = filter.replace('/*', '(\/[^\/].+)*').replace('*/', '([^\/].+\/)*');
+
+    var reg = new RegExp('^' + pattern + '$');
+    return reg.test(input);
+  }
+
   var logeek = function logeek(msg) {
     this.msg = msg;
     return this;
   };
 
   logeek.prototype.at = function (scope) {
-    if (config.scope === scope || config.scope === '_global_') console.log(this.msg);
+    if (config.scope === scope || config.scope === '_global_' || passesFilter(this.msg, scope)) console.log(this.msg);
   };
 
   var show = function show(scope) {
