@@ -93,10 +93,20 @@ describe('Scoped logs', function () {
     
     logeek.show('x/*');
     // logeek('m @ x/y');
-    logeek('m').at('x/y');
-    expect(console.log.firstCall.calledWith('m')).to.be.true;
-    // expect(console.log.secondCall.calledWith('m')).to.be.true;
+    logeek('a').at('x/y');
+    expect(console.log.firstCall.calledWith('a')).to.be.true;
     
+    console.log.restore();
+  });
+  
+  it('should also log parent scope when nested scopes are set to be visible', function () {
+    setup();
+
+    logeek.show('x/*');
+    
+    logeek('b').at('x');
+    expect(console.log.firstCall.calledWith('b')).to.be.true;
+
     console.log.restore();
   });
 });
