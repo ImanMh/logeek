@@ -81,9 +81,13 @@
     return this;
   };
 
+  function pipeToConsole(msg) {
+    if (msg instanceof Array) console.log.apply(null, msg);else console.log.call(null, msg);
+  }
+
   logeek.prototype.at = function (scope) {
     var trimmedScope = trim(scope);
-    if (config.visibleScope === trimmedScope || config.visibleScope === '_global_' || passesFilter(config.visibleScope, trimmedScope)) console.log(this.msg);
+    if (config.visibleScope === trimmedScope || config.visibleScope === '_global_' || passesFilter(config.visibleScope, trimmedScope)) pipeToConsole(this.msg);
   };
 
   var show = function show(scope) {

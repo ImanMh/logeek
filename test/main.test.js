@@ -78,7 +78,7 @@ describe('Scoped logs', function () {
     expect(console.log.secondCall.calledWith('m ')).to.be.true;
     expect(console.log.calledTwice).to.be.true;
     
-    console.log.restore();
+    tearedown();
   });
   
   it('should log when wildcard are used for matching child scopes', function () {
@@ -91,7 +91,7 @@ describe('Scoped logs', function () {
     expect(console.log.secondCall.calledWith('b ')).to.be.true;
     expect(console.log.calledTwice).to.be.true;
     
-    console.log.restore();
+    tearedown();
   });
   
   it('should also log parent scope when nested scopes are set to be visible', function () {
@@ -107,7 +107,7 @@ describe('Scoped logs', function () {
     expect(console.log.thirdCall.calledWith('c ')).to.be.true;
     expect(console.log.calledThrice).to.be.true;
 
-    console.log.restore();
+    tearedown();
   });
   
   it('should not be called when deep scope doesn\'t match', function () {
@@ -120,7 +120,7 @@ describe('Scoped logs', function () {
     logeek('c').at(' a/b/x  ');
     expect(console.log.notCalled).to.be.true;
     
-    console.log.restore();
+    tearedown();
   });
   
   it('scopes must be trimmed before beeing tested', function () {
@@ -132,7 +132,7 @@ describe('Scoped logs', function () {
     expect(console.log.firstCall.calledWith('a')).to.be.true;
     expect(console.log.calledOnce).to.be.true;
     
-    console.log.restore();
+    tearedown();
   });
   
   it('reverse scopes should work', function () {
@@ -146,7 +146,7 @@ describe('Scoped logs', function () {
     expect(console.log.secondCall.calledWith('b')).to.be.true;
     expect(console.log.calledTwice).to.be.true;
     
-    console.log.restore();
+    tearedown();
   });
   
   it('should not be called when reverse scope is wrong', function () {
@@ -159,7 +159,24 @@ describe('Scoped logs', function () {
     logeek('c').at(' x/a/b  ');
     expect(console.log.notCalled).to.be.true;
     
-    console.log.restore();
+    tearedown();
+  });
+  
+  it('should support array input', function () {
+    setup();
+    
+    logeek.show('s/*');
+    
+    logeek(['a', 'b']).at('s');
+    logeek(['c', 'd']).at('s/m');
+
+    expect(console.log.firstCall.args[0] === 'a').to.be.true;
+    expect(console.log.firstCall.args[1] === 'b').to.be.true;
+    expect(console.log.secondCall.args[0] === 'c').to.be.true;
+    expect(console.log.secondCall.args[1] === 'd').to.be.true;
+    expect(console.log.callCount === 2).to.be.true;
+    
+    tearedown();
   });
 });
 
@@ -178,7 +195,7 @@ describe('async calls', function () {
       expect(console.log.secondCall.calledWith('b')).to.be.true;
       done();
 
-      console.log.restore();
+      tearedown();
     }, 1);
       
   });
@@ -195,7 +212,7 @@ describe('async calls', function () {
         done();
         
         logeek.show('_global_');
-        console.log.restore();
+        tearedown();
       }, 1);
     };
     
