@@ -10,9 +10,9 @@ suite('Logeek', function () {
 		logeek('Hi');
 	});
 
-  // bench('array input log', function () {
-  //   logeek(['one', 'tow', 'three']);
-	// });
+  bench('array input log', function () {
+    logeek(['one', 'tow', 'three']);
+	});
 
   bench('scope defined log', function () {
     logeek('Hi @ S');
