@@ -2,7 +2,7 @@
 *A log framework for geeks!*
 Logeek adds control and joy to your console log messages. It's a high performance, light weight tool for logging Javascript messages in node or browser. It can be combined with other tools such as Chalk to  extend it's powers even more.
 
-![Logeek benchmark results](http://z84.imgup.net/ScreenShotbbbd.png)
+![Logeek benchmark results](http://j71.imgup.net/ScreenShot2cef.png)
 
 ##Why not using native log?
 Native log is good, but you almost always delete it after you finish your work. One reason can be logs are for developers so it's better to remove them after finishing the job. The other reason is that when team working comes in, everyone try to get the upper hand in logging. You might have seen funny delimiters like ---------- My Name --------  or red color messages all over your console. Finally the team end up with a huge mess that no body can easily find their logs in it. logeek will fix all these issues in a very simple manner. Now that you know why using the native log is a bad idea, read the rest of this document to find the solution.
