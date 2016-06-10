@@ -4,18 +4,22 @@ var logeek = require('../dist/logeek');
 suite('Logeek', function () {
 	set('iterations', 100000);
 
-  logeek.show('nothing');
+  logeek.show('X');
 
-  bench('simple log', function () {
-		logeek('Hi');
+	bench('simple not matching log', function () {
+		logeek('Hi').at('s');
+	});
+
+	bench('simple matching log', function () {
+		logeek('Hi').at('s');
+	});
+
+	bench('simple compact log', function () {
+		logeek('Hi @ s');
 	});
 
   bench('array input log', function () {
-    logeek(['one', 'tow', 'three']);
-	});
-
-  bench('scope defined log', function () {
-    logeek('Hi @ S');
+    logeek(['one', 'tow', 'three']).at('s');
 	});
 
   bench('nested scope log', function () {
