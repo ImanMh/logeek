@@ -1,12 +1,12 @@
 {
   "name": "logeek",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A better way to Javascript logging",
   "main": "dist/logeek.js",
   "dependencies": {
-    "gulp-babel": "^5.3.0"
   },
   "devDependencies": {
+    "gulp-babel": "^5.3.0",
     "chai": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",
