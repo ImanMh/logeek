@@ -10,11 +10,11 @@ Native log is good, but you almost always delete it after you finish your work. 
 ##Installation
 You can install it using ```bower``` or ```npm``` depending on your project type. 
 ```
-npm install logeek
+npm install logeek --save
 ```
 or
 ```
-bower install logeek
+bower install logeek --save
 ```
 make sure to include the ```dist/logeek.js``` in your HTML or your Node application after you download it.
 
