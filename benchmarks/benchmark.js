@@ -1,5 +1,5 @@
 'use strict';
-var logeek = require('../dist/logeek').logeek;
+var logeek = require('../dist/logeek');
 
 suite('Logeek', function () {
 	set('iterations', 100000);
@@ -10,9 +10,9 @@ suite('Logeek', function () {
 		logeek('Hi');
 	});
 
-  bench('array input log', function () {
-    logeek(['one', 'tow', 'three']);
-	});
+  // bench('array input log', function () {
+  //   logeek(['one', 'tow', 'three']);
+	// });
 
   bench('scope defined log', function () {
     logeek('Hi @ S');
@@ -26,7 +26,6 @@ suite('Logeek', function () {
   bench('reverse scope half matched', function () {
     logeek('Hi @ S/M/G');
 	});
-  logeek.show('nothing');
 
 
 });
