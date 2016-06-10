@@ -81,9 +81,10 @@ describe('Scoped logs', function () {
     setup();
     
     logeek.show('x/y');
-    logeek('m @ x/y');
     logeek('m').at('x/y');
+    logeek('m @ x/y');
     expect(console.log.firstCall.calledWith('m')).to.be.true;
+    expect(console.log.secondCall.calledWith('m ')).to.be.true;
     
     console.log.restore();
   });
@@ -92,9 +93,10 @@ describe('Scoped logs', function () {
     setup();
     
     logeek.show('x/*');
-    // logeek('m @ x/y');
     logeek('a').at('x/y');
+    logeek('b @ x/y');
     expect(console.log.firstCall.calledWith('a')).to.be.true;
+    expect(console.log.secondCall.calledWith('b ')).to.be.true;
     
     console.log.restore();
   });
@@ -104,10 +106,22 @@ describe('Scoped logs', function () {
 
     logeek.show('x/*');
     
-    logeek('b').at('x');
-    expect(console.log.firstCall.calledWith('b')).to.be.true;
+    logeek('a').at('x');
+    logeek('b @ x');
+    expect(console.log.firstCall.calledWith('a')).to.be.true;
+    expect(console.log.secondCall.calledWith('b ')).to.be.true;
 
     console.log.restore();
+  });
+  
+  it('scopes must be trimmed before beeing tested', function () {
+    setup();
+    
+    logeek.show('  x/* ');
+    
+    logeek('a').at(' x  ');
+    expect(console.log.firstCall.calledWith('a')).to.be.true;
+    
   });
 });
 

@@ -63,6 +63,10 @@
     visibleScope: '_global_'
   };
   
+  function trim (str) {
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+  }
+  
   function passesFilter (visibleScope, testedScope) {
     var pattern = visibleScope.
         replace('/*', '(\/[^\/].*)*').
@@ -78,14 +82,15 @@
   };
   
   logeek.prototype.at = function (scope) {
-    if (config.visibleScope === scope || 
+    var trimmedScope = trim(scope);
+    if (config.visibleScope === trimmedScope || 
         config.visibleScope === '_global_' || 
-        passesFilter(config.visibleScope, scope))
+        passesFilter(config.visibleScope, trimmedScope))
       console.log(this.msg);
   };
   
   var show = function (scope) {
-    config.visibleScope = scope;
+    config.visibleScope = trim(scope);
   };
   
   var logeekParser = function (logCommand) {
