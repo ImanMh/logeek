@@ -62,14 +62,14 @@
 (function () {
   var config = {
     globalName: 'logeek',
-    scope: '_global_'
+    visibleScope: '_global_'
   };
 
-  function passesFilter(input, filter) {
-    var pattern = filter.replace('/*', '(\/[^\/].+)*').replace('*/', '([^\/].+\/)*');
+  function passesFilter(visibleScope, testedScope) {
+    var pattern = visibleScope.replace('/*', '(\/[^\/].*)*').replace('*/', '([^\/].*\/)*');
 
     var reg = new RegExp('^' + pattern + '$');
-    return reg.test(input);
+    return reg.test(testedScope);
   }
 
   var logeek = function logeek(msg) {
@@ -78,11 +78,11 @@
   };
 
   logeek.prototype.at = function (scope) {
-    if (config.scope === scope || config.scope === '_global_' || passesFilter(this.msg, scope)) console.log(this.msg);
+    if (config.visibleScope === scope || config.visibleScope === '_global_' || passesFilter(config.visibleScope, scope)) console.log(this.msg);
   };
 
   var show = function show(scope) {
-    config.scope = scope;
+    config.visibleScope = scope;
   };
 
   var logeekParser = function logeekParser(logCommand) {
