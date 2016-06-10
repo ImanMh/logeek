@@ -24,9 +24,9 @@ describe('simple logging', function () {
     
     logeek('m1').at('s1');
     logeek('m2 @ s2');
-    expect(console.log.calledTwice).to.be.true;
     expect(console.log.firstCall.calledWith('m1')).to.be.true;
     expect(console.log.secondCall.calledWith('m2 ')).to.be.true;
+    expect(console.log.calledTwice).to.be.true;
     
     tearedown();
   });
@@ -36,9 +36,9 @@ describe('simple logging', function () {
     
     logeek('m  @ s');
     logeek('   a   ').at('s');
-    expect(console.log.calledTwice).to.be.true;
     expect(console.log.firstCall.calledWith('m  ')).to.be.true;
     expect(console.log.secondCall.calledWith('   a   ')).to.be.true;
+    expect(console.log.calledTwice).to.be.true;
     
     tearedown();
   });
@@ -51,21 +51,12 @@ describe('Scoped logs', function () {
     
     logeek.show('X');
     logeek('m').at('s');
-    expect(console.log.notCalled).to.be.true;
-    
-    tearedown();
-  });
-  
-  it('should not log messages out of scope [compact style]', function () {
-    setup();
-    
-    logeek.show('X');
     logeek('m @ s');
     expect(console.log.notCalled).to.be.true;
     
     tearedown();
   });
-  
+    
   it('should not log msg if scope is a descendant child of current scope', function () {
     setup();
     
@@ -85,6 +76,7 @@ describe('Scoped logs', function () {
     logeek('m @ x/y');
     expect(console.log.firstCall.calledWith('m')).to.be.true;
     expect(console.log.secondCall.calledWith('m ')).to.be.true;
+    expect(console.log.calledTwice).to.be.true;
     
     console.log.restore();
   });
@@ -97,6 +89,7 @@ describe('Scoped logs', function () {
     logeek('b @ x/y');
     expect(console.log.firstCall.calledWith('a')).to.be.true;
     expect(console.log.secondCall.calledWith('b ')).to.be.true;
+    expect(console.log.calledTwice).to.be.true;
     
     console.log.restore();
   });
@@ -107,10 +100,26 @@ describe('Scoped logs', function () {
     logeek.show('x/*');
     
     logeek('a').at('x');
-    logeek('b @ x');
+    logeek('b').at('x/m/n');
+    logeek('c @ x');
     expect(console.log.firstCall.calledWith('a')).to.be.true;
-    expect(console.log.secondCall.calledWith('b ')).to.be.true;
+    expect(console.log.secondCall.calledWith('b')).to.be.true;
+    expect(console.log.thirdCall.calledWith('c ')).to.be.true;
+    expect(console.log.calledThrice).to.be.true;
 
+    console.log.restore();
+  });
+  
+  it('should not be called when deep scope doesn\'t match', function () {
+    setup();
+    
+    logeek.show('x/*');
+    
+    logeek('a').at('a/x');
+    logeek('b').at(' a/x/b  ');
+    logeek('c').at(' a/b/x  ');
+    expect(console.log.notCalled).to.be.true;
+    
     console.log.restore();
   });
   
@@ -121,6 +130,34 @@ describe('Scoped logs', function () {
     
     logeek('a').at(' x  ');
     expect(console.log.firstCall.calledWith('a')).to.be.true;
+    expect(console.log.calledOnce).to.be.true;
+    
+    console.log.restore();
+  });
+  
+  it('reverse scopes should work', function () {
+    setup();
+    
+    logeek.show('  */x ');
+    
+    logeek('a').at(' a/x  ');
+    logeek('b').at(' a/b/x  ');
+    expect(console.log.firstCall.calledWith('a')).to.be.true;
+    expect(console.log.secondCall.calledWith('b')).to.be.true;
+    expect(console.log.calledTwice).to.be.true;
+    
+    console.log.restore();
+  });
+  
+  it('should not be called when reverse scope is wrong', function () {
+    setup();
+    
+    logeek.show('  */x ');
+    
+    logeek('a').at(' a/b  ');
+    logeek('b').at(' a/x/b  ');
+    logeek('c').at(' x/a/b  ');
+    expect(console.log.notCalled).to.be.true;
     
     console.log.restore();
   });
