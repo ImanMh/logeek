@@ -113,3 +113,6 @@ logeek(chalk.red('copy aborted') + '@ copy');
 And this is what you see in your console: 
 
 ![Logeek Console Log](http://m08.imgup.net/ScreenShoteedf.png)
+
+##And more...
+[![NPM](https://nodei.co/npm-dl/logeek.png?months=6&height=2)](https://nodei.co/npm/logeek/)
