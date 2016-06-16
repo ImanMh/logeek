@@ -22,7 +22,7 @@
     "testem": "^0.9.8"
   },
   "scripts": {
-    "test": "testem ci --launch node",
+    "test": "testem ci --launch node,firefox,Chrome",
     "localTest": "testem",
     "benchmark": "matcha benchmarks/benchmark.js"
   },
