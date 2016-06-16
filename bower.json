@@ -1,6 +1,6 @@
 {
   "name": "logeek",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "homepage": "https://github.com/ImanMh/logeek",
   "description": "A modern soloution for Javascript logging",
   "main": "dist/logeek.js",

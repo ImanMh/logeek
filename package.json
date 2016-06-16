@@ -1,6 +1,6 @@
 {
   "name": "logeek",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A better way to Javascript logging",
   "main": "dist/logeek.js",
   "dependencies": {
@@ -22,7 +22,7 @@
     "testem": "^0.9.8"
   },
   "scripts": {
-    "test": "testem ci --launch node,firefox,Chrome",
+    "test": "testem ci --launch node",
     "localTest": "testem",
     "benchmark": "matcha benchmarks/benchmark.js"
   },
