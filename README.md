@@ -5,8 +5,8 @@ Logeek adds control and joy to your console log messages. It's a high performanc
 
 [![Builder package.json size](https://badges.herokuapp.com/size/github/ImanMh/logeek/master/dist/logeek.min.js)](https://github.com/FormidableLabs/builder)
 [![Victory size](https://badges.herokuapp.com/size/github/ImanMh/logeek/master/dist/logeek.min.js?gzip=true)](https://www.npmjs.com/package/victory)
-[![Travis](https://img.shields.io/travis/ImanMh/logeek.svg?maxAge=2592000&style=flat-square)]()
-
+[![Travis build status](https://img.shields.io/travis/ImanMh/logeek.svg?maxAge=2592000&style=flat-square)]()
+[![npm downloads](https://img.shields.io/npm/dt/express.svg?maxAge=2592000)]()
 ![Logeek benchmark results](http://j71.imgup.net/ScreenShot2cef.png)
 
 ##Why not using native log?
