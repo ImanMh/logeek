@@ -2,7 +2,9 @@
 *A log framework for geeks!*
 Logeek adds control and joy to your console log messages. It's a high performance, light weight tool for logging Javascript messages in node or browser. It can be combined with other tools such as Chalk to  extend it's powers even more.
 
-[![Build Status](https://travis-ci.org/ImanMh/persianRex.svg?branch=master)](https://travis-ci.org/ImanMh/persianRex)
+
+![travis-ci build status](https://travis-ci.org/ImanMh/logeek.svg)
+
 ![Logeek benchmark results](http://j71.imgup.net/ScreenShot2cef.png)
 
 ##Why not using native log?
