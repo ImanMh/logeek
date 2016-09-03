@@ -7,7 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Logeek</title>
-  <meta name="description" content="">
+  <meta name="description" content="Logeek is a javascript log framework for node or browser. It’s a high performance and light weight. Easy to combined with other tools such as Chalk.">
+
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<meta property="og:title" content="Logeek" />
+<meta name="description" content="Logeek is a javascript log framework for node or browser. It’s a high performance and light weight. Easy to combined with other tools such as Chalk." />
+<meta property="og:description" content="Logeek is a javascript log framework for node or browser. It’s a high performance and light weight. Easy to combined with other tools such as Chalk." />
+<link rel="canonical" href="http://imanmh.github.io/logeek//logeek/" />
+<meta property="og:url" content="http://imanmh.github.io/logeek//logeek/" />
+<meta property="og:site_name" content="Logeek" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Iman_Mh" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Logeek",
+    "headline": "Logeek",
+    "description": "Logeek is a javascript log framework for node or browser. It’s a high performance and light weight. Easy to combined with other tools such as Chalk.",
+    "url": "http://imanmh.github.io/logeek//logeek/"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/logeek/css/main.css">
   <link rel="canonical" href="http://imanmh.github.io/logeek//logeek/">
@@ -55,8 +76,9 @@
     <div class="page-content">
       <div class="wrapper">
         <h1 id="logeek">Logeek</h1>
-<p><em>A log framework for geeks!</em>
-Logeek adds control and joy to your console log messages. It’s a high performance, light weight tool for logging Javascript messages in node or browser. It can be combined with other tools such as Chalk to  extend it’s powers even more.</p>
+<p><em>A log framework for geeks!</em></p>
+
+<p>Logeek adds control and joy to your console log messages. It’s a high performance, light weight tool for logging Javascript messages in node or browser. It can be combined with other tools such as Chalk to  extend it’s powers even more.</p>
 
 <p><img src="https://badges.herokuapp.com/size/github/ImanMh/logeek/master/dist/logeek.min.js" alt="Builder package.json size" />
 <img src="https://badges.herokuapp.com/size/github/ImanMh/logeek/master/dist/logeek.min.js?gzip=true" alt="Victory size" />
@@ -69,15 +91,15 @@ Logeek adds control and joy to your console log messages. It’s a high performa
 <p>Native log is good, but you almost always delete it after you finish your work. One reason can be logs are for developers so it’s better to remove them after finishing the job. The other reason is that when team working comes in, everyone try to get the upper hand in logging. You might have seen funny delimiters like ———- My Name ——–  or red color messages all over your console. Finally the team end up with a huge mess that no body can easily find their logs in it. logeek will fix all these issues in a very simple manner. Now that you know why using the native log is a bad idea, read the rest of this document to find the solution.</p>
 
 <h2 id="installation">Installation</h2>
-<p>You can install it using <code class="highlighter-rouge">bower</code> or <code class="highlighter-rouge">npm</code> depending on your project type. 
-<code class="highlighter-rouge">
-npm install logeek --save
-</code>
-or
-<code class="highlighter-rouge">
-bower install logeek --save
-</code>
-make sure to include the <code class="highlighter-rouge">dist/logeek.js</code> in your HTML or your Node application after you download it.</p>
+<p>You can install it using <code class="highlighter-rouge">bower</code> or <code class="highlighter-rouge">npm</code> depending on your project type.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install logeek --save
+</code></pre>
+</div>
+<p>or</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>bower install logeek --save
+</code></pre>
+</div>
+<p>make sure to include the <code class="highlighter-rouge">dist/logeek.js</code> in your HTML or your Node application after you download it.</p>
 
 <h2 id="usage">Usage</h2>
 <p>Logeek is easy to use, All you need to do is to include it and tell logeek which messages you want to be logged:</p>
@@ -106,20 +128,20 @@ make sure to include the <code class="highlighter-rouge">dist/logeek.js</code> i
 </code></pre>
 </div>
 
-<p>This is what you’ll see in your console: 
-<code class="highlighter-rouge">
-starting copy
+<p>This is what you’ll see in your console:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>starting copy
 50% done
 100% done
-</code></p>
+</code></pre>
+</div>
 
-<p>If you used <code class="highlighter-rouge">logeek.show('copy/*')</code> your console would be like:
-<code class="highlighter-rouge">
-starting copy
+<p>If you used <code class="highlighter-rouge">logeek.show('copy/*')</code> your console would be like:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>starting copy
 50% done
 A file was skipped
 100% done
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="nested-scopes">Nested Scopes</h2>
 <p>Scopes are powerful ways to group your log message together and disable or enable them at a certain point. Not only you can create different groups, you can also nest these groups to create a relation between them  and control them much easier.</p>
@@ -153,7 +175,7 @@ A file was skipped
 <span class="c1">//these two are the same</span>
 <span class="nx">logeek</span><span class="p">(</span><span class="s1">'inserting new data'</span><span class="p">).</span><span class="nx">at</span><span class="p">(</span><span class="s1">'db/data'</span><span class="p">);</span>
 <span class="nx">logeek</span><span class="p">(</span><span class="s1">'inserting new data @ db/data'</span><span class="p">);</span>
-  
+
 </code></pre>
 </div>
 
@@ -220,7 +242,7 @@ A file was skipped
       </div>
 
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>Logeek is a javascript log framework for node or browser. It’s a high performance and light weight. Easy to combined with other tools such as Chalk.</p>
       </div>
     </div>
 
