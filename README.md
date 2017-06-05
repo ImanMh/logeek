@@ -111,12 +111,12 @@ var chalk = require('chalk'),
     logeek = require('logeek');
 
 logeek.show('copy/*');
-logeek(chalk.gray('copy started').at('copy');
-logeek(chalk.green('50% done').at('copy');
-logeek(chalk.gray('making md5 comparison').at('md5');
-logeek(chalk.yellow('one file skipped').at('copy/skip');
-logeek(chalk.red('error occured during coppy').at('copy/error');
-logeek(chalk.gray('logging into db').at('db');
+logeek(chalk.gray('copy started')).at('copy');
+logeek(chalk.green('50% done')).at('copy');
+logeek(chalk.gray('making md5 comparison')).at('md5');
+logeek(chalk.yellow('one file skipped')).at('copy/skip');
+logeek(chalk.red('error occured during coppy')).at('copy/error');
+logeek(chalk.gray('logging into db')).at('db');
 logeek(chalk.red('copy aborted') + '@ copy');
 ```
 
